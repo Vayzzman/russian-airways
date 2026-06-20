@@ -19,8 +19,7 @@ async function loadFlights() {
     const pilot = row[1] || '';
     const route = row[2] || '';
     const aircraft = row[3] || '';
-    const time = row[4] || '';
-
+    const time = row[4] && row[5] ? row[4] + ',' + row[5] : row[4] || '';
     table.innerHTML += `
       <tr>
         <td>${date}</td>
