@@ -122,3 +122,21 @@ footer {
     padding: 30px;
     color: #94a3b8;
 }
+
+.pilot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.pilot-card {
+    background: #111827;
+    border: 1px solid #1f2937;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.pilot-card h3 {
+    margin-top: 0;
+    color: #93c5fd;
+}
