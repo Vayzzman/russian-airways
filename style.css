@@ -55,6 +55,24 @@ nav a:hover {
     color: var(--primary-hover);
 }
 
+.vatsim-header-link {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.vatsim-header-link img {
+    height: 38px;
+    width: auto;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.vatsim-header-link img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
 .hero {
     position: relative;
 
