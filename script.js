@@ -4,6 +4,8 @@ const PILOTS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRlFkBrS
 
 const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRlFkBrSSDnNIzo7zvCd_FSP_WHRU2CElpUBwnPi-WWC5dsQ2iK7CPkx51dfC6jhkPy-A40R9vHMF0T/pub?gid=1717542339&single=true&output=csv';
 
+const FLEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRlFkBrSSDnNIzo7zvCd_FSP_WHRU2CElpUBwnPi-WWC5dsQ2iK7CPkx51dfC6jhkPy-A40R9vHMF0T/pub?gid=2004156095&single=true&output=csv';
+
 function parseCSV(csv) {
   const rows = [];
   let row = [];
@@ -118,6 +120,40 @@ async function loadStats() {
   }
 }
 
+async function loadFleet() {
+  const fleetGrid = document.getElementById('fleetGrid');
+  const fleetCount = document.getElementById('fleetCount');
+
+  if (!fleetGrid) return;
+
+  try {
+    const response = await fetch(FLEET_CSV_URL + '&v=' + Date.now());
+    const csv = await response.text();
+    const rows = parseCSV(csv);
+    const data = rows.slice(1);
+
+    fleetGrid.innerHTML = '';
+
+    if (fleetCount) {
+      fleetCount.textContent = data.length;
+    }
+
+    data.forEach(row => {
+      fleetGrid.innerHTML += `
+        <div class="fleet-card">
+          <h3>${row[2] || 'Aircraft'}</h3>
+          <p>Регистрация: ${row[1] || ''}</p>
+          <p>Локация: ${row[4] || ''}</p>
+          <p>Статус: ${row[5] || ''}</p>
+        </div>
+      `;
+    });
+  } catch (error) {
+    fleetGrid.innerHTML = '<p>Ошибка загрузки флота</p>';
+  }
+}
+
 loadFlights();
 loadPilots();
 loadStats();
+loadFleet();
