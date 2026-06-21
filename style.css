@@ -206,4 +206,14 @@ footer {
     .pilot-grid {
         grid-template-columns: 1fr;
     }
+}#flights table th:nth-child(4),
+#flights table td:nth-child(4) {
+    text-align: center;
 }
+#flights table th:nth-child(3),
+#flights table td:nth-child(3),
+#flights table th:nth-child(4),
+#flights table td:nth-child(4) {
+    text-align: center;
+}
+
