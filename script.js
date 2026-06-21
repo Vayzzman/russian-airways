@@ -80,7 +80,7 @@ async function loadPilots() {
         <div class="pilot-card">
           <h3>${row[1] || ''} ${row[2] || ''}</h3>
           <p>Должность: ${row[5] || 'Пилот'}</p>
-          <p>База: ${row[6] || ''}</p>
+          <p>Местоположение: ${row[6] || ''}</p>
         </div>
       `;
     });
