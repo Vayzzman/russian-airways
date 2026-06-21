@@ -144,7 +144,6 @@ async function loadFleet() {
           <h3>${row[2] || 'Aircraft'}</h3>
           <p>Регистрация: ${row[1] || ''}</p>
           <p>Локация: ${row[4] || ''}</p>
-          <p>Статус: ${row[5] || ''}</p>
         </div>
       `;
     });
