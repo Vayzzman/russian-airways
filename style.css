@@ -201,6 +201,40 @@ tr:hover {
     color: var(--text-muted);
 }
 
+.fleet {
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+.fleet-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 0 25px rgba(221, 42, 83, .08);
+}
+
+.fleet-card h3 {
+    color: var(--primary-hover);
+    margin-top: 0;
+}
+
+.fleet-card p {
+    color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+    .fleet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 #awards p {
     color: var(--text-muted);
 }
