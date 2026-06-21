@@ -45,7 +45,6 @@ async function loadPilots() {
     grid.innerHTML += `
       <div class="pilot-card">
         <h3>${row[1] || ''} ${row[2] || ''}</h3>
-        <p>Позывной: ${row[3] || ''}</p>
         <p>Локация: ${row[6] || ''}</p>
       </div>
     `;
