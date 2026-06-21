@@ -78,22 +78,20 @@ nav a:hover {
     font-size: 18px;
 }
 
-.stats {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    padding: 40px;
-    flex-wrap: wrap;
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 40px auto;
 }
 
-.card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 25px;
-    min-width: 220px;
+.stat-card {
+    background: #0b1730;
+    border: 1px solid rgba(221,42,83,.25);
+    border-radius: 20px;
+    padding: 35px;
     text-align: center;
-    box-shadow: 0 0 25px rgba(221, 42, 83, .08);
 }
 
 .card h3 {
