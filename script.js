@@ -38,8 +38,14 @@ function parseCSV(csv) {
   return rows;
 }
 
+function setText(id, value) {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value;
+}
+
 async function loadFlights() {
   const table = document.getElementById('flightTable');
+  if (!table) return;
 
   try {
     const response = await fetch(FLIGHTS_CSV_URL + '&v=' + Date.now());
@@ -59,8 +65,6 @@ async function loadFlights() {
         </tr>
       `;
     });
-
-    document.getElementById('flightCount').textContent = data.length;
   } catch (error) {
     table.innerHTML = '<tr><td colspan="4">Ошибка загрузки рейсов</td></tr>';
   }
@@ -68,6 +72,7 @@ async function loadFlights() {
 
 async function loadPilots() {
   const grid = document.getElementById('pilotGrid');
+  if (!grid) return;
 
   try {
     const response = await fetch(PILOTS_CSV_URL + '&v=' + Date.now());
@@ -87,31 +92,32 @@ async function loadPilots() {
       `;
     });
 
-    document.getElementById('pilotCount').textContent = data.length;
+    setText('pilotCount', data.length);
   } catch (error) {
     grid.innerHTML = '<p>Ошибка загрузки пилотов</p>';
   }
 }
 
-document.getElementById('awardCount').textContent = '0';
-
 async function loadStats() {
-  const response = await fetch(STATS_CSV_URL + '&v=' + Date.now());
-  const csv = await response.text();
-  const rows = parseCSV(csv);
+  try {
+    const response = await fetch(STATS_CSV_URL + '&v=' + Date.now());
+    const csv = await response.text();
+    const rows = parseCSV(csv);
 
-  const stats = {};
+    const stats = {};
 
-  rows.slice(1).forEach(row => {
-    stats[row[0]] = row[1];
-  });
+    rows.slice(1).forEach(row => {
+      stats[row[0]] = row[1];
+    });
 
-  document.getElementById('flightCount').textContent = stats['Рейсов всего'] || '0';
-  document.getElementById('distanceCount').textContent = stats['Дистанция'] || '0';
+    setText('flightCount', stats['Рейсов всего'] || '0');
+    setText('distanceCount', stats['Дистанция'] || '0');
+  } catch (error) {
+    setText('flightCount', '0');
+    setText('distanceCount', '0');
+  }
 }
 
 loadFlights();
 loadPilots();
 loadStats();
-
-
