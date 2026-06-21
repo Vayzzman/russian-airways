@@ -216,4 +216,42 @@ footer {
 #flights table td:nth-child(4) {
     text-align: center;
 }
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 35px rgba(221, 42, 83, .15);
+}
+
+.about-text {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.about-text h2 {
+    color: var(--primary-hover);
+    margin-top: 0;
+}
+
+.about-text p {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
 
