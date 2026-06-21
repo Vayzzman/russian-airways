@@ -95,5 +95,23 @@ async function loadPilots() {
 
 document.getElementById('awardCount').textContent = '0';
 
+async function loadStats() {
+  const response = await fetch(STATS_CSV_URL + '&v=' + Date.now());
+  const csv = await response.text();
+  const rows = parseCSV(csv);
+
+  const stats = {};
+
+  rows.slice(1).forEach(row => {
+    stats[row[0]] = row[1];
+  });
+
+  document.getElementById('flightCount').textContent = stats['Рейсов всего'] || '0';
+  document.getElementById('distanceCount').textContent = stats['Дистанция'] || '0';
+}
+
 loadFlights();
 loadPilots();
+loadStats();
+
+
