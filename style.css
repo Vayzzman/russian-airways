@@ -78,30 +78,44 @@ nav a:hover {
     font-size: 18px;
 }
 
+.stats,
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     max-width: 900px;
     margin: 40px auto;
+    padding: 40px 20px;
 }
 
+.card,
 .stat-card {
-    background: #0b1730;
+    background: #111827;
     border: 1px solid rgba(221,42,83,.25);
     border-radius: 20px;
     padding: 35px;
     text-align: center;
+    box-shadow: 0 0 25px rgba(221, 42, 83, .08);
 }
 
-.card h3 {
+.card h3,
+.stat-card h3 {
     margin-top: 0;
     color: var(--primary-hover);
 }
 
-.card span {
+.card span,
+.stat-card span {
     font-size: 36px;
     font-weight: bold;
+    color: #ffffff;
+}
+
+@media (max-width: 900px) {
+    .stats,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 section {
