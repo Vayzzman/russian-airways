@@ -24,6 +24,23 @@ async function loadFlights() {
         <td>${row[1] || ''}</td>
         <td>${row[2] || ''}</td>
         <td>${row[3] || ''}</td>
+      </tr>
+    `;
+  });
+
+  document.getElementById('flightCount').textContent = data.length;
+}
+
+  const table = document.getElementById('flightTable');
+  table.innerHTML = '';
+
+  data.slice(0, 20).forEach(row => {
+    table.innerHTML += `
+      <tr>
+        <td>${row[0] || ''}</td>
+        <td>${row[1] || ''}</td>
+        <td>${row[2] || ''}</td>
+        <td>${row[3] || ''}</td>
         <td>${row[4] || ''}</td>
       </tr>
     `;
