@@ -56,16 +56,16 @@ nav a:hover {
 }
 
 .hero {
-    text-align: center;
-    padding: 80px 20px;
     background:
         linear-gradient(
-            rgba(8, 13, 24, .86),
-            rgba(8, 13, 24, .92)
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.45)
         ),
-        url('https://github.com/Vayzzman/russian-airways/blob/main/backgroundB2.png');
+        url('backgroundB2.png');
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .hero h2 {
